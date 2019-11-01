@@ -858,3 +858,7 @@ a {
 #tfjsq_company_name{
     color: #000;
 }
+
+.ui-jqgrid .ui-jqgrid-pager{
+    min-height: 90px;
+}
