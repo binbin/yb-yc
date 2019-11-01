@@ -41,7 +41,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "async": "^1.5.2",
