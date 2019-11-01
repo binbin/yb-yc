@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "test": "karma start"
   },
   "author": "",
   "license": "ISC",
@@ -68,6 +70,7 @@
     "es3ify-loader": "^0.2.0",
     "es6-promise": "^4.2.4",
     "fecha": "https://github.com/binbin/fecha/tarball/master",
+    "file-saver": "^2.0.2",
     "install": "^0.11.0",
     "js-base64": "^2.1.9",
     "mirrorx": "^0.2.10",
