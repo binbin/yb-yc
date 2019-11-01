@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" href="http://www.12333h.cn/eapdomain/si/css/common/Style.css">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://localhost/bootstrap/dist/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://localhost/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/template.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://localhost/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://localhost/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.dialog_box .close_btn').click(function(){
+			$('.maskscreen').hide('slow')
+			$('.minibar').show('slow')
+		})
+		$('.minibar').click(function(){
+			$('.maskscreen').show('slow')
+			$('.minibar').hide('slow')
+		})
+		$('.dialog_box .nav-tabs li').click(function(){
+			$(this).addClass('active').siblings().removeClass('active')
+			$('.dialog_box .tab-content .tab-pane').eq($(this).index()).addClass('active').siblings().removeClass('active')
+		})
+	})
+	$(function(){
+		$('.dialog_box .nav-tabs li').css('display','block')
+		$('.dialog_box .nav-tabs li:eq(3)').click()
+		// $('.dialog_box .nav-tabs li:last').click()
+	})
+	$(function(){
+		var re_pid = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/
+		var $formcontrol=$('#g_single_bushou input:text').parent().parent()
+		$('#g_single_bushou input:text').keyup(function(){
+			if(re_pid.test($.trim($(this).val()))){
+				$formcontrol.addClass('has-success').removeClass('has-warning').removeClass('has-error')
+			}else if($.trim($(this).val())==''){
+				$formcontrol.removeClass('has-success').removeClass('has-warning name').removeClass('has-error')
+			}else if($.trim($(this).val()).length==18){
+				$formcontrol.addClass('has-error').removeClass('has-success').removeClass('has-warning')
+			}else{
+				$formcontrol.addClass('has-warning').removeClass('has-success').removeClass('has-error')
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<div class="minibar">
+	+
+</div>
+<div class="maskscreen">
+	<div class="dialog_box">
+		<div class="close_btn">最小化</div>
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+		  <li role="presentation" class="active" style="display:block;"><a>通知</a></li>
+		  <li role="presentation"><a>单位到帐</a></li>
+		  <li role="presentation"><a>个人到账</a></li>
+		  <li role="presentation"><a>批量划帐</a></li>
+		  <li role="presentation"><a>个人批量征集</a></li>
+		  <li role="presentation"><a>个人查询</a></li>
+		  <li role="presentation"><a>农保批量终止</a></li>
+		  <li role="presentation"><a>农保待遇申请</a></li>
+		  <li role="presentation"><a>农保待遇核定</a></li>
+		  <li role="presentation"><a>个人变更记录查询</a></li>
+		  <li role="presentation"><a>养老续发</a></li>
+		  <li role="presentation"><a>179征集</a></li>
+		  <li role="presentation"><a>征集回退</a></li>
+		  <li role="presentation"><a>个人征集</a></li>
+		  <li role="presentation"><a>补缴(单个模式)</a></li>
+		  <li role="presentation"><a>发包工具</a></li>
+		  <li role="presentation"><a>应缴实缴明细</a></li>
+		  <li role="presentation"><a>统筹内转移</a></li>
+		  <li role="presentation"><a>新增</a></li>
+		  <li role="presentation"><a>退休申请登记</a></li>
+			<li role="presentation"><a>解除</a></li>
+			<li role="presentation">
+				<a>缴费证明打印</a>
+			</li>
+			<li role="presentation">
+				<a>工伤药费登记</a>
+			</li>
+			<li role="presentation">
+				<a>工伤药费初审</a>
+			</li>
+			<li role="presentation">
+				<a>退费计算器</a>
+			</li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+		   <div role="tabpanel" class="tab-pane active" id="d0">
+		  	<div class="tabpanel_item active">
+				<h2 style="color:#666;text-align:center;font-size:40px;font-weight:bold;">公告</h2>
+				<p style="color:#666;text-align:center;font-size:32px;font-weight:bold;">
+					暂无内容
+					<br/>
+					<a href="http://cf-sto.kingwuzhu.com/index.html" target="_blank">点击查看插件安装、使用说明</a>
+					<br/>
+					<img src="http://cf-sto.kingwuzhu.com/qr_code.png" alt="">
+					<img src="http://cf-sto.kingwuzhu.com/wechart.png" alt="">
+				</p>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d1">
+		  	<div class="tabpanel_item active">
+		  		<div class="change-type-box">
+					<label class="radio-inline qx">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="YL"> 养老
+					</label>
+					<label class="radio-inline qx">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="GS"> 工伤
+					</label>
+					<label class="radio-inline qx">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="SY"> 生育
+					</label>
+					<label class="radio-inline qx">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="YB"> 医疗
+					</label>
+					<label class="radio-inline qx">
+					  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="JY"> 失业
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">请在每一行中输入"单位名称&nbsp;&nbsp;单位编号(可选)&nbsp;&nbsp;属期&nbsp;&nbsp;金额 到帐日期",如：赤峰财政局&nbsp;&nbsp;2286005(可选)&nbsp;&nbsp;2015-05-01至2015-06-30&nbsp;&nbsp;8,257.40&nbsp;&nbsp;2015-06-09
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始处理
+					</button>
+				</div>
+		  	</div>
+			<div class="tabpanel_item">
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+			</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d2">
+		  	<div class="tabpanel_item active">
+		  		<div class="change-type-box">
+					<label class="radio-inline qx">
+					  <input type="radio" name="d2_inlineRadioOptions2" value="YL"> 养老
+					</label>
+					<label class="radio-inline qx">
+					  <input type="radio" name="d2_inlineRadioOptions2" value="YB"> 医疗
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号 姓名 属期 金额 到帐日期(yyyy-mm-dd)"
+			            	如：150404196505140023 张蓝方 2015-05-01至2015-06-30 2,607.60 2015-07-08
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="fhywcl">
+			  <div class="tabpanel_item active">
+			  	<div class="oprate-title">
+			            	<span class="label label-info">
+						请选择需要处理的业务与处理方式:
+				            </span>
+									</div>
+				 <div class="form-horizontal" id="fhywcl_radiobox1">
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="ALL" checked>所有业务</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI021">原离退休人员新增</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI025">机关事业原离退休人员新增</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI093">双重人员享受处理</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI120">在职死亡人员丧抚费补发</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI311">按单位批量停续发</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI350">养老代扣处理</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCI384">军转干部待遇审核</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCJ002">失业待遇初审</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UCJ018">失业保险金增加享受月数</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA001">单位新参保</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA002">单位信息维护</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA005">单位注销</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA051">人员参保登记</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA053">人员关键信息修改</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA054">人员停保</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA055">人员续保</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA056">人员终止参保</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA058">改革前离退休人员新增</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGA065">视同缴费年限认定</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI100">养老待遇核定</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI101">养老待遇重新核定</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI104">一次性待遇申领核定</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI106">多发待遇追回及扣除发放</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI110">定期待遇零星调整</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI116">在职人员一次性待遇申领核定</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI121">多发待遇追回财务到账</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_1" value="UGI999">交叉授权</label>
+					</div>
+			  	<div class="oprate-box oprate-box-h">
+						<div class="form-horizontal" id="fhywcl_radiobox2">
+							<label class="radio-inline">
+							  <input type="radio" name="fhywcl_2"  value="FHTG" checked> 复核通过
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="fhywcl_2"  value="FHBTG"> 复核不通过
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="fhywcl_2" value="YWHT"> 业务回退
+							</label>
+						</div>
+					
+
+						 <div class="form-inline" id="fhywcl_inputbox3">
+							<div class="form-group">
+							    <div class="input-group">
+							      <div class="input-group-addon">经办开始时间</div>
+							      <input class="form-control" id="fhywcl_start_time" type="text" >
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="input-group">
+							      <div class="input-group-addon">经办结束时间</div>
+							      <input class="form-control" id="fhywcl_end_time" type="text" >
+							    </div>
+							</div>
+						 </div>	 
+						  <div class="form-inline"  id="fhywcl_textareabox"><textarea placeholder="需要处理的身份证号" style="width:100%;height:140px;"></textarea></div>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始处理
+					</button>
+				</div>
+			  </div>
+				
+			</div>
+			
+		  <div role="tabpanel" class="tab-pane" id="d4">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+	<!--				<label class="radio-inline">
+					  <input type="radio" name="d4_inlineRadioOptions4" id="inlineRadio1" value="YL2016" checked> 养老2016
+					</label> -->
+					<label class="radio-inline">
+					  <input type="radio" name="d4_inlineRadioOptions4" id="inlineRadio3" value="YL2017" checked> 养老2017
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号 姓名 所属时间段 金额 征集日期(yyyy-mm-dd)"
+			            	如：150404196505140023 张蓝方 2017-01-01至2017-12-31 9919.08
+ 2017-07-01
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始征集
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role="tabpanel" class="tab-pane" id="retiree_cx">
+		  	<div class="tabpanel_item active">
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号"
+			            	如：150404196505140023
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+										<table class="table  table-result">
+											<thead>
+												<tr>
+													<td>身份证号</td>
+													<td>姓名</td>
+													<td>经办机构</td>
+													<td>单位名称</td>
+													<td>待遇发放状态</td>
+													<td>离退休类别</td>
+													<td>离退休时间</td>
+													<td>养老金</td>
+													<td>菜金取暖</td>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role="tabpanel" class="tab-pane" id="d5">
+		  	<div class="tabpanel_item active">
+		  		<div class="change-type-box">
+					<label class="radio-inline">
+					  <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1" checked> 批量暂停
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> 批量暂停
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号 姓名"
+			            	如：150404196505140023 张蓝方 
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d6">
+		  	<div class="tabpanel_item active">
+		  		<div class="change-type-box">
+		  			<label class="radio-inline">
+					  <input type="radio" name="d6_inlineRadioOptions5_id6"  value="CX" checked> 个人信息查询
+					</label>
+		  			<label class="radio-inline">
+					  <input type="radio" name="d6_inlineRadioOptions5_id6"  value="JF"> 缴费查询
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d6_inlineRadioOptions5_id6"  value="SQ"> 批量申请
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d6_inlineRadioOptions5_id6"  value="HT"> 申请回退
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"姓名 身份证号"
+			            	如：张蓝方 150404196505140023 
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d7">
+		  	<div class="tabpanel_item active">
+		  		<div class="change-type-box">
+					<label class="radio-inline">
+					  <input type="radio" name="inlineRadioOptions5_id6" id="inlineRadio1_id6" value="option1" checked> 批量核定
+					</label>
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"姓名 身份证号 卡号?"
+			            	如：张蓝方 150404196505140023 62220404050505050505
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+					<ul class="list-group">
+					  
+					</ul>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d_grbgcx">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号"
+			            	如：150404196505140023
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>单位编号</td>
+									<td>单位名称</td>
+									<td>险种类型</td>
+									<td>变更类型</td>
+									<td>变更原因</td>
+									<td>变更日期</td>
+									<td>费款所属期</td>
+									<td>经办人</td>
+									<td>经办时间</td>
+									<td>经办机构</td>
+									<td>备注</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d_ylxf">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号"
+			            	如：150404196505140023
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" >xxxx</textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>处理结果</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d_179bf">
+		  	<div class="tabpanel_item">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"姓名 身份证号 起止年月"
+			            	如：林登万 150404196505140023 199601-199702
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" >xxxx</textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item  active">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+				            <span class="label label-info pull-right">批量打印</span>
+				            <span class="label label-info pull-right" style="display: none;">正在处理中...</span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>处理结果</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+					<span class="pull-right btn btn-info">批量打印</span>
+				    <span class="label label-info pull-right" style="display: none;">正在处理中...</span>
+				</div>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane" id="d_zjht">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"姓名 身份证号 起止年月"
+			            	如：林登万 150404196505140023 199601-199702
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" >xxxx</textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>处理结果</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role="tabpanel" class="tab-pane" id="d_grzj">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"姓名 身份证号 起止年月 缴费档次"
+			            	如：林登万 150404196505140023 199601-199702 0.6 
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" >xxxx</textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>处理结果</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role="tabpanel" class="tab-pane" id="g_single_bushou">
+		  	<div class="tabpanel_item active oprate_panel">
+				<div  class="form-inline" style="margin-bottom: 20px;overflow: hidden;">
+					<div class="form-group" style="overflow: hidden;">
+					    <div class="input-group input-group-lg">
+						  <span class="input-group-addon">身份证号</span>
+						  <input type="text" class="form-control" style="width:300px" placeholder="身份证号" aria-describedby="sizing-addon1">
+						</div>
+						<button type="button" class="btn btn-default  btn-lg">读取身份证</button>
+					</div>
+					<div class="form-group" style="overflow: hidden;">
+					    <div class="input-group input-group-lg">
+						  <span class="input-group-addon">截止时间</span>
+						 	<input type="text" value="201712" class="form-control" style="width:100px">
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">个人信息</div>
+				  <div class="panel-body">
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">中断信息</div>
+				  <div class="panel-body">
+				  </div>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role="tabpanel" class="tab-pane" id="d_fbgj">
+		  	<div class="tabpanel_item active">
+				<div class="oprate-box">
+					<textarea class="form-control" >xxxx</textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+
+		  <div role="tabpanel" class="tab-pane" id="yjsjmx">
+		  	<div class="tabpanel_item active">
+ 		  		<div class="change-type-box">
+                  <!--   <label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio1" value="YL" checked> 养老
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="d_grcx_inlineRadioOptions4" id="d_grcx_inlineRadio3" value="YB"> 医疗
+					</label> -->
+				</div>
+				<div class="oprate-title">
+			            	<span class="label label-info">
+						请在每一行中输入"身份证号"
+			            	如：150404196505140023
+				            </span>
+			            </div>
+				<div class="oprate-box">
+					<textarea class="form-control" ></textarea>
+				</div>
+				<div class="oprate-button-box">
+					<button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span> 开始查询
+					</button>
+				</div>
+		  	</div>
+		  	<div class="tabpanel_item">
+		  		<div class="oprate-title">
+			            	<span class="label label-info">
+						处理结果:
+				            </span>
+			            </div>
+			            <div class="oprate-box oprate-box-h">
+							<table class="table  table-result">
+								<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>单位编号</td>
+									<td>单位名称</td>
+									<td>险种类型</td>
+									<td>缴费类型</td>
+									<td>结算期</td>
+									<td>费款所属期</td>
+									<td>应收金额</td>
+									<td>到账日期</td>
+									<td>经办人</td>
+									<td>经办时间</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+			            </div>
+				<div class="oprate-button-box">
+			            	<button type="button" class="btn btn-info">
+					  <span class="glyphicon glyphicon-hand-left"></span>返回上一步
+					</button>
+				</div>
+		  	</div>
+		  </div>
+
+		  <div role=tabpanel class=tab-pane id=tcnzy>
+			  <div class="tabpanel_item active">
+			    <div class=change-type-box>
+			      <label class=radio-inline>
+			        <input type=checkbox name=tcnzy_types value=11 checked>养老</label>
+			      <label class=radio-inline>
+			        <input type=checkbox name=tcnzy_types value=41 checked>工伤</label>
+			      <label class=radio-inline>
+			        <input type=checkbox name=tcnzy_types disabled value=51>生育</label>
+			      <label class=radio-inline>
+			        <input type=checkbox name=tcnzy_types disabled value=31,32>医疗</label>
+			      <label class=radio-inline>
+			        <input type=checkbox name=tcnzy_types value=21 checked>失业</label>
+			      <label class=radio-inline style=padding-left:40px>单位编号:
+			        <input name=tcnzy_to_company id=tcnzy_to_company  value=2001998></label>
+			     </div>
+			    <div class=oprate-title>
+			      <span class="label label-info">请在每一行中输入"姓名 身份证号" 如 林登万 150401198401010020</span></div>
+			    <div class=oprate-box>
+			      <textarea class=form-control></textarea>
+			    </div>
+			    <div class=oprate-button-box>
+			      <button type=button class="btn btn-info pull-right">
+			        <span class="glyphicon glyphicon-hand-right"></span>开始</button>
+			    </div>
+			  </div>
+			  <div class=tabpanel_item>
+			    <div class=oprate-title>
+			      <span class="label label-info">处理结果:</span></div>
+			    <div class="oprate-box oprate-box-h">
+			      <table class="table table-result">
+			        <thead>
+			          <tr>
+			            <td>身份证号
+			              <td>姓名
+			                <td>未成功原因
+			                  <tbody></table></div>
+			    <div class=oprate-button-box>
+			      <button type=button class="btn btn-info">
+			        <span class="glyphicon glyphicon-hand-left"></span>返回上一步</button>
+			    </div>
+			  </div>
+			</div>
+
+
+			<div role="tabpanel" class="tab-pane" id="czxincan">
+			   <div class="tabpanel_item active">
+				<div style="background:#fff;">
+					<div class="left">
+						<div class="change-type-box">
+						     <label class="radio-inline"><input type="radio" name="czxincan_join_flag" disabled value="1" checked /> 补收参与单位结算</label>
+						     <label class="radio-inline"><input type="radio" disabled name="czxincan_join_flag" value="0" /> 补收不参与单位结算</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						     <label class="radio-inline"><input type="radio" name="czxincan_join_type" value="1" checked /> 统筹内新增</label>
+						     <label class="radio-inline"><input type="radio"  name="czxincan_join_type" value="0" /> 旗县间转入</label>
+						</div>
+						<div class="change-type-box">
+						     <label class="radio-inline"><input type="checkbox" name="czxincan_tcnzy_types" value="11" checked="" /> 养老</label>
+						     <label class="radio-inline"><input type="checkbox" name="czxincan_tcnzy_types" value="41" checked="" /> 工伤</label>
+						     <label class="radio-inline"><input type="checkbox" name="czxincan_tcnzy_types"  value="51" /> 生育</label>
+						     <label class="radio-inline"><input type="checkbox" name="czxincan_tcnzy_types"  value="31,32" /> 医疗</label>
+						     <label class="radio-inline"><input type="checkbox" name="czxincan_tcnzy_types" value="21" checked="" /> 失业</label>
+						</div>	
+					</div>
+					<div class="right">
+						<div class="change-type-box">
+							<label class="radio-inline" style="padding-left:0">单位编号:<input name="czxincan_company_id_input" id="czxincan_company_id_input" /></label>
+						</div>
+						<div class="change-type-box" id="czxincan_company_name">
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					
+				</div>	 
+			    
+			    
+					
+			    <div class="oprate-title">
+			     <span class="label label-info">请在每一行中输入&quot;姓名 身份证号 参加工作年月 工资基数&quot; 如 林登万 150401198401010020 201709 2000</span>
+			    </div>
+			    <div class="oprate-box" style="height:365px">
+			     <textarea class="form-control" style="height:360px"></textarea>
+			    </div>
+			    <div class="oprate-button-box">
+			     <button type="button" class="btn btn-info pull-left"><span class="glyphicon glyphicon-hand-right"></span> 读取身份证</button>
+			     <button type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 开始</button>
+			     <div class="clearfix"></div>
+			    </div>
+			   </div>
+			   <div class="tabpanel_item">
+			    <div class="oprate-title">
+			     <span class="label label-info">处理结果:</span>
+			    </div>
+			    <div class="oprate-box oprate-box-h">
+			     <table class="table table-result">
+			      <thead>
+			       <tr>
+			        <td>身份证号</td>
+			        <td>姓名</td>
+			        <td>处理结果</td>
+			       </tr>
+			      </thead>
+			      <tbody></tbody>
+			     </table>
+			    </div>
+			    <div class="oprate-button-box">
+			     <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>返回上一步</button>
+			    </div>
+			   </div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="txsqdj">
+			   <div class="tabpanel_item">
+					 
+			    <div class="opreate_box">
+			    	<form class="form-horizontal">
+					  <div class="form-group">
+					    <label for="txsqdj_name" class="col-sm-2 control-label">姓名</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="txsqdj_name" placeholder="姓名">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="txsqdj_cid" class="col-sm-2 control-label">身份证号</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="txsqdj_cid" placeholder="身份证号">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="txsqdj_cid" class="col-sm-2 control-label">档案编号(新增时才需要填写)</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="txsqdj_da_id" placeholder="档案编号">
+					    </div>
+					  </div>
+					  
+
+
+					  <div class="oprate-button-box">
+					     
+					     <button type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 开始</button>
+					     <button style="margin-right: 20px" type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 读取身份证</button>
+
+					     <div class="clearfix"></div>
+					    </div>
+					</form>
+			    </div>
+			   </div>
+			   <div class="tabpanel_item active">
+			   	<div class="opreate_box">
+			   	
+			   		<div style="background:#fff;width: 100%;">
+							 <div class="left">
+								<h4>请填写手机号码并选择条目进行登记</h4>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="txsqdj_tel">手机号码:</label>
+										<input type="text" class="form-control" id="txsqdj_tel" placeholder="手机号码">
+									</div>
+									<div class="form-group">
+										<label for="txsqdj_tel">民族:</label>
+										<input type="text" class="form-control" id="txsqdj_nation" placeholder="民族">
+									</div>
+									<div class="form-group" id="txsqdj_nation_labels">
+										<span class="label label-default" data-value="蒙古族">蒙</span>
+										<span class="label label-default" data-value="汉族">汉</span>
+										<span class="label label-default" data-value="满族">满</span>
+										<span class="label label-default" data-value="回族">回</span>
+										<span class="label label-default" data-value="达斡尔族">达斡尔</span>
+									</div>
+								</form>
+							 </div>
+							 <div class="right">
+								 <h4>中断信息</h4>
+								 <div>
+								 </div>
+							 </div>
+							 <div class="clearfix"></div>
+						 </div>
+			   		<div class="list-group">
+			   		  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					  <li class="list-group-item">
+					    <h4 class="list-group-item-heading">asfddsaf</h4>
+					    <p class="list-group-item-text">asfddsafdsaf</p>
+					  </li>
+					</div>
+					<div class="oprate-button-box">
+				     <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>返回上一步</button>
+				     
+				    <button type="button" class="btn btn-info pull-right">
+					  <span class="glyphicon glyphicon-hand-right"></span>登记
+					</button>
+
+				    </div>
+			   	</div>
+			   </div>
+			</div>
+
+
+			<div role="tabpanel" class="tab-pane" id="czjiechu">
+			   <div class="tabpanel_item active">
+				<div style="background:#fff;">
+					<div class="left">
+						<div class="change-type-box">
+						     <label class=radio-inline>转移至单位编号:<input name=czjiechu_to_company id=czjiechu_to_company disabled value=2001998></label>
+						</div>
+						<div class="change-type-box">
+						     <label class="radio-inline"><input type="checkbox" name="czjiechu_tcnzy_types" value="11" checked="" /> 养老</label>
+						     <label class="radio-inline"><input type="checkbox" name="czjiechu_tcnzy_types" value="41" checked="" /> 工伤</label>
+						     <label class="radio-inline"><input type="checkbox" name="czjiechu_tcnzy_types" disabled="" value="51" /> 生育</label>
+						     <label class="radio-inline"><input type="checkbox" name="czjiechu_tcnzy_types" disabled="" value="31,32" /> 医疗</label>
+						     <label class="radio-inline"><input type="checkbox" name="czjiechu_tcnzy_types" value="21" checked="" /> 失业</label>
+						</div>	
+					</div>
+					<div class="right">
+						<div class="change-type-box">
+							<label class="radio-inline" style="padding-left:0">单位编号:<input name="czjiechu_company_id_input" id="czjiechu_company_id_input" /></label>
+						</div>
+						<div class="change-type-box" id="czjiechu_company_name">
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					
+				</div>	 
+			    
+			    
+					
+			    <div class="oprate-title">
+			     <span class="label label-info">请在每一行中输入&quot;姓名 身份证号&quot; 如 林登万 150401198401010020 </span>
+			    </div>
+			    <div class="oprate-box" style="height:365px">
+			     <textarea class="form-control" style="height:360px"></textarea>
+			    </div>
+			    <div class="oprate-button-box">
+			     <button type="button" class="btn btn-info pull-left"><span class="glyphicon glyphicon-hand-right"></span> 读取身份证</button>
+			     <button type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 开始</button>
+			     <div class="clearfix"></div>
+			    </div>
+			   </div>
+			   <div class="tabpanel_item">
+			    <div class="oprate-title">
+			     <span class="label label-info">处理结果:</span>
+			    </div>
+			    <div class="oprate-box oprate-box-h">
+			     <table class="table table-result">
+			      <thead>
+			       <tr>
+			        <td>身份证号</td>
+			        <td>姓名</td>
+			        <td>处理结果</td>
+			       </tr>
+			      </thead>
+			      <tbody></tbody>
+			     </table>
+			    </div>
+			    <div class="oprate-button-box">
+			     <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>返回上一步</button>
+			    </div>
+			   </div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="jfzmdy">
+				<div class="tabpanel_item active">
+					<div class="oprate-title">
+						<span class="label label-info">请在每一行中输入&quot;身份证号或个人编号&quot; 如 150401198401010020 </span>
+					</div>
+					<div class="oprate-box" style="height:365px">
+						<textarea class="form-control" style="height:360px"></textarea>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info pull-left">
+							<span class="glyphicon glyphicon-hand-right"></span> 读取身份证</button>
+						<button type="button" class="btn btn-info pull-right">
+							<span class="glyphicon glyphicon-hand-right"></span> 开始</button>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="gsyfdj">
+				<div class="tabpanel_item active">
+				
+					<div class="opreate_box">
+
+						<div class="gsyfdj_main_container">
+							<div class="gsyfdj_left">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label for="gsyfdj_name" class="col-sm-2 control-label">姓名:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_name" placeholder="姓名">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_cid" class="col-sm-2 control-label">身份证号:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_cid" placeholder="身份证号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_pid" class="col-sm-2 control-label">个人编号:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_pid" placeholder="个人编号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_company" class="col-sm-2 control-label">单位:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_company" placeholder="身份证号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_tel" class="col-sm-2 control-label">联系电话:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_tel" placeholder="联系电话">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_level" class="col-sm-2 control-label">工残等级:</label>
+										<div class="col-sm-10" id="gsyfdj_level">
+											<div class="btn-group" >
+												<button type="button" class="btn btn-default" data-level="伤残一级" title="伤残一级">1</button>
+												<button type="button" class="btn btn-default" data-level="伤残二级" title="伤残二级">2</button>
+												<button type="button" class="btn btn-default" data-level="伤残三级" title="伤残三级">3</button>
+												<button type="button" class="btn btn-default" data-level="伤残四级" title="伤残四级">4</button>
+												<button type="button" class="btn btn-default" data-level="伤残五级" title="伤残五级">5</button>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default" data-level="伤残六级" title="伤残六级">6</button>
+												<button type="button" class="btn btn-default" data-level="伤残七级" title="伤残七级">7</button>
+												<button type="button" class="btn btn-default" data-level="伤残八级" title="伤残八级">8</button>
+												<button type="button" class="btn btn-default" data-level="伤残九级" title="伤残九级">9</button>
+												<button type="button" class="btn btn-default" data-level="伤残十级" title="伤残十级">10</button>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default" data-level="无伤残等级" title="无伤残等级">无等级</button>
+												<button type="button" class="btn btn-default" data-level="系统空白" title="系统空白">空白</button>
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_body" class="col-sm-2 control-label">伤残部位:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_body" placeholder="治疗开始时间">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_begin" class="col-sm-2 control-label">治疗开始时间:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_begin" placeholder="治疗开始时间">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_begin" class="col-sm-2 control-label">治疗结束时间:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_end" placeholder="治疗结束时间">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gsyfdj_area" class="col-sm-2 control-label">治疗医院:</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="gsyfdj_area" placeholder="治疗医院">
+										</div>
+									</div>
+									<div class="form-group>
+										<label for="gsyfdj_history_list" class="col-sm-2 control-label">历史登记:</label>
+										<div class="col-sm-10"  style="padding-left: 0">
+												<ul class="gsyfdj_history_list">
+												</ul>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="gsyfdj_right">
+								<div class="form-group">
+									<label class="control-label" id="gsyfdj_count_label">
+										 共<span id="gsyfdj_count_list">0</span>条,共<span id="gsyfdj_count_amount">0</span>元.
+									</label>
+									<label for="gsyfdj_begin" class="control-label">条目明细:</label>
+									<div class="">
+										<input type="text" class="form-control" id="gsyfdj_amount_input" placeholder="治疗结束时间">
+									</div>
+								</div>
+								<ul>
+								</ul>
+							</div>
+							<div class="gsyfdj_main">
+									<ul class="list-group">
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市解放街康复医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市上京医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市第二医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰学院附属医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰学院第二附属医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">红花沟金矿医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市职业病防治所</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市220医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">赤峰市康复医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">梧桐花铅锌矿医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">元宝山区医院</p>
+											</li>
+											<li class="list-group-item">
+												<p class="list-group-item-text">安定医院</p>
+											</li>
+									</ul>
+									
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					
+						
+						<div class="oprate-button-box">
+						
+							<button type="button" class="btn btn-info pull-right">
+								<span class="glyphicon glyphicon-hand-right"></span> 开始</button>
+							<button style="margin-right: 20px" type="button" class="btn btn-info pull-right">
+								<span class="glyphicon glyphicon-hand-right"></span> 读取身份证</button>
+							<button style="margin-right: 20px" type="button" class="btn btn-info pull-right">
+								<span class="glyphicon glyphicon-hand-right"></span> 重置</button>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="tabpanel_item">
+					<div class="oprate-title">
+						<span class="label label-info">本月登记记录:</span>
+					</div>
+					<div class="oprate-box oprate-box-h">
+						<ul class="list-group">
+							<li class="list-group-item">
+								<h4 class="list-group-item-heading">
+									<span style="padding-right: 20px;">20180402</span>共
+									<span>5</span>条
+									<span style="float: right;">204.25</span>
+								</h4>
+								<p class="list-group-item-text">
+						
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info">
+							<span class="glyphicon glyphicon-hand-left"></span>返回上一步</button>
+					</div>
+
+					
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="gsyf_chusheng">
+				<div class="tabpanel_item active">
+					<div class="change-type-box">
+						<label class="radio-inline">
+							<input type="radio" name="gsyf_chusheng_force" id="gsyf_chusheng_force_1" value="1" checked> 检测重复导入
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="gsyf_chusheng_force" id="gsyf_chusheng_force_2" value="2" disabled> 强行导入
+						</label>
+					</div>
+					<div class="oprate-title">
+						<span class="label label-info">请在每一行中输入"姓名&nbsp;&nbsp;身份证号或个人编号&nbsp;&nbsp;待遇类别&nbsp;&nbsp;申报金额&nbsp;&nbsp;扣除金额"<br/>如：张三&nbsp;&nbsp;150402197204060502&nbsp;&nbsp;工伤医疗检查治疗费&nbsp;&nbsp;2932.45&nbsp;&nbsp;299
+						</span>
+					</div>
+					<div class="oprate-box">
+						<textarea class="form-control"></textarea>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info pull-right">
+							<span class="glyphicon glyphicon-hand-right"></span> 开始处理
+						</button>
+					</div>
+				</div>
+				<div class="tabpanel_item">
+					<div class="oprate-title">
+						<span class="label label-info">处理结果:</span>
+					</div>
+					<div class="oprate-box oprate-box-h">
+						<table class="table table-result">
+							<thead>
+								<tr>
+									<td>身份证号</td>
+									<td>姓名</td>
+									<td>人员类别</td>
+									<td>离退休状态</td>
+									<td>险种</td>
+									<td>出生时间</td>
+									<td>参加工作时间</td>
+									<td>离退休时间</td>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info">
+							<span class="glyphicon glyphicon-hand-left"></span>返回上一步
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+			<div role="tabpanel" class="tab-pane" id="tfjsq">
+				<div class="tabpanel_item active">
+					<div class="change-type-box">
+						<label class="radio-inline" style="padding-left:0">单位编号:
+							<input name="tfjsq_company_id_input" id="tfjsq_company_id_input" />
+						</label>
+						<span id="tfjsq_company_name"></span>
+					</div>
+					<div class="oprate-title">
+						<span class="label label-info">请在每一行中输入"姓名&nbsp;&nbsp;身份证号&nbsp;&nbsp;退费开始时间&nbsp;&nbsp;退费结束时间"
+							如：张三&nbsp;&nbsp;150402197204060502&nbsp;&nbsp;201705&nbsp;&nbsp;201802
+						</span>
+					</div>
+					<div class="oprate-box">
+						<textarea class="form-control"></textarea>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info pull-right">
+							<span class="glyphicon glyphicon-hand-right"></span> 开始处理
+						</button>
+					</div>
+				</div>
+				<div class="tabpanel_item">
+					<div class="oprate-title">
+						<span class="label label-info">处理结果:</span>
+					</div>
+					<div class="oprate-box oprate-box-h">
+						<table class="table table-result">
+							<thead>
+								<tr>
+									<td>姓名</td>
+									<td>身份证号</td>
+									<td>退费期间</td>
+									<td>缴费基数</td>
+									<td>利率</td>
+									<td>单位本金</td>
+									<td>单位利息</td>
+									<td>个人本金</td>
+									<td>个人利息</td>
+									<td>合计退费</td>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div class="oprate-button-box">
+						<button type="button" class="btn btn-info">
+							<span class="glyphicon glyphicon-hand-left"></span>返回上一步
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+		</div>
+		<div class="loading_plugin">
+			<div class="loading_plugin_content">
+				loading...
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

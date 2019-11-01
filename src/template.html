@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" href="http://www.12333h.cn/eapdomain/si/css/common/Style.css">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://localhost/bootstrap/dist/css/bootstrap.min.css">
+	
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://localhost/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="./template.css">
+	
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://localhost/jquery.min.js"></script>
+	
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://localhost/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.dialog_box .close_btn').click(function(){
+			$('.maskscreen').hide('slow')
+			$('.minibar').show('slow')
+		})
+		$('.minibar').click(function(){
+			$('.maskscreen').show('slow')
+			$('.minibar').hide('slow')
+		})
+		$('.dialog_box .nav-tabs li').click(function(){
+			$(this).addClass('active').siblings().removeClass('active')
+			$('.dialog_box .tab-content .tab-pane').eq($(this).index()).addClass('active').siblings().removeClass('active')
+		})
+	})
+	$(function(){
+		$('.dialog_box .nav-tabs li').css('display','block')
+	})
+	$(function(){
+		$('#d0 a').click(function(){
+			$('#d0').hide()
+			$($(this).attr('for')).show()
+			$('.home_btn').text('返回功能列表')
+		})
+		$('.home_btn').click(function(){
+			if($(this).text()==='返回功能列表'){
+				$('.tab-pane').hide()
+				$('#d0').show()
+				$(this).text('功能列表')
+			}
+		})
+	})
+</script>
+<style type="text/css">
+.role {
+    display: block;
+}
+</style>
+</head>
+<body>
+<OBJECT       
+	  classid="clsid:F1317711-6BDE-4658-ABAA-39E31D3704D3"
+	  width=0
+	  height=0
+	  align=center
+	  hspace=0
+	  vspace=0
+	  id=idcard
+	  name=rdcard>
+</OBJECT>
+<div class="minibar">
+	+
+</div>
+<div class="maskscreen">
+	<div class="loading_plugin">
+		<div class="loading_plugin_content">
+			loading...
+		</div>
+	</div>
+	<div class="dialog_box">
+		<div class="home_btn">功能列表</div>
+		<div class="top_title">功能列表</div>
+		<div class="close_btn">最小化</div>
+		<div class="tab-content">
+		   <div role="tabpanel" class="tab-pane active" id="d0">
+		  	<div class="tabpanel_item active" style="margin-top: 20px;">
+				<div class="dashbord container-fluid">
+					<div class="row">
+						<div class="dashbord-label">
+							个人业务:
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#gr_grcx">
+								<i class="iconfont">&#xe665;</i>
+								<div>个人信息查询</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#gr_grxg">
+								<i class="iconfont">&#xe622;</i>
+								<div>个人信息修改</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#gr_txxxbg">
+								<i class="iconfont">&#xe626;</i>
+								<div>退休信息变更</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#fhywcl">
+								<i class="iconfont">&#xe612;</i>
+								<div>复核业务处理</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#gr_dycs">
+								<i class="iconfont">&#xe76e;</i>
+								<div>待遇重新核定</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#jfbdy">
+								<i class="iconfont">&#xe6a5;</i>
+								<div>计发表打印</div>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="dashbord-label">
+							单位业务:
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#dw_dwcx">
+								<i class="iconfont">&#xe665;</i>
+								<div>单位信息查询</div>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 role">
+							<a class="dashbord-link" href="javascript:void(0)" for="#cw_jjdz">
+								<i class="iconfont">&#xe6da;</i>
+								<div>实收到帐</div>
+							</a>
+						</div>
+					</div>
+				</div>
+		  	</div>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="pb_print">
+</div>
+
+</body>
+</html>
