@@ -215,7 +215,7 @@ module.exports = function (){
                 loadingtools.show("已获取分页信息...")
                 try {
                     if (data1["total"]){
-                        data["pages"] = data1["total"]
+                        data["total"] = data1["total"]
                         data["pages"] = Array.from(Array(data1["total"]), (v, k) => k + 1);
                         resolve(data)
                     }else{
