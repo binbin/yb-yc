@@ -136,7 +136,7 @@ const parse_dict = [
     {
         name: 'fcheckNoReson', text: '初审不通过原因',
         formatter: function (val) {
-            return val == null ? "" : val;
+            return val == null ? "" : ("\"" + val + "\"");
         }
     },
     {
@@ -148,7 +148,7 @@ const parse_dict = [
     {
         name: 'tcheckNoReson', text: '复审不通过原因',
         formatter: function (val) {
-            return val == null ? "" : val;
+            return val == null ? "" : "\"" + val + "\"";
         }
     },
     {
@@ -160,7 +160,7 @@ const parse_dict = [
     {
         name: 'lcheckNoReson', text: '终审不通过原因',
         formatter: function (val) {
-            return val == null ? "" : val;
+            return val == null ? "" : "\"" + val + "\"";
         }
     }
 ]
@@ -171,7 +171,7 @@ const parseRows=(row)=>{
     return row.map((r)=>{
         return parse_dict.map(rt=>{
             if(r[rt["name"]]){
-                return rt["formatter"] ? rt["formatter"](r[rt["name"]]) : ("\"" + r[rt["name"]] + "\"")
+                return rt["formatter"] ? rt["formatter"](r[rt["name"]].replace(/\"/g,"\'")) : ("\"" + r[rt["name"]] + "\"")
             }else{
                 return ""
             }
