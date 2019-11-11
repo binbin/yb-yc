@@ -171,7 +171,8 @@ const parseRows=(row)=>{
     return row.map((r)=>{
         return parse_dict.map(rt=>{
             if(r[rt["name"]]){
-                return rt["formatter"] ? rt["formatter"](r[rt["name"]].replace(/\"/g,"\'")) : ("\"" + r[rt["name"]] + "\"")
+                _.isString(r[rt["name"]]) ? (r[rt["name"]] = r[rt["name"]].replace(/\"/g, "\'").replace(/\,/g, "，")):null
+                return rt["formatter"] ? rt["formatter"](r[rt["name"]]) : ("\"" + r[rt["name"]] + "\"")
             }else{
                 return ""
             }
@@ -217,6 +218,7 @@ module.exports = function (){
                     if (data1["total"]){
                         data["total"] = data1["total"]
                         data["pages"] = Array.from(Array(data1["total"]), (v, k) => k + 1);
+                        // data["pages"] =data["pages"].slice(790)
                         resolve(data)
                     }else{
                         data["errorMsg"] ="获取分页信息出错1"
