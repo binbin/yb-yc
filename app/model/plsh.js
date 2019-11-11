@@ -31,7 +31,7 @@ var fecha = require('fecha')
 */
 
 
-var html = '<div role=tabpanel class=tab-pane id=plsh><div class="tabpanel_item active"><div class=change-type-box><label class=radio-inline><input type=radio name=plsh_inlineRadioOptions4 value=BTG checked> 审核不通过</label><label class=radio-inline><input type=radio name=plsh_inlineRadioOptions4 value=TG> 审核通过</label></div><div class=oprate-title><span class="label label-info">请在每一行中输入"身份证号" 如：150404196505140023</span></div><div class=oprate-box><textarea class=form-control></textarea></div><div class=oprate-button-box><button type=button class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 开始查询</button></div></div><div class=tabpanel_item><div class=oprate-title><span class="label label-info">处理结果:</span></div><div class="oprate-box oprate-box-h"><table class="table table-result"><thead><tr><td>序号</td><td>ID</td><td>结果</td></tr></thead><tbody></tbody></table></div><div class=oprate-button-box><button type=button class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>返回上一步</button></div></div></div>'
+var html = '<div role=tabpanel class=tab-pane id=plsh><div class="tabpanel_item active"><div class=change-type-box><label class=radio-inline><input type=radio name=plsh_inlineRadioOptions4 value=BTG checked> 审核不通过</label><label class=radio-inline><input type=radio name=plsh_inlineRadioOptions4 value=TG> 审核通过</label></div><div class=oprate-title><span class="label label-info">请在每一行中输入"需要操作的ID 审核不通过的理由" 如：PRODUCTDECLARE0000000000000000000001 属新增</span></div><div class=oprate-box><textarea class=form-control></textarea></div><div class=oprate-button-box><button type=button class="btn btn-info pull-right"><span class="glyphicon glyphicon-hand-right"></span> 开始查询</button></div></div><div class=tabpanel_item><div class=oprate-title><span class="label label-info">处理结果:</span></div><div class="oprate-box oprate-box-h"><table class="table table-result"><thead><tr><td>序号</td><td>ID</td><td>结果</td></tr></thead><tbody></tbody></table></div><div class=oprate-button-box><button type=button class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>返回上一步</button></div></div></div>'
 
 buildDom(html);
 
@@ -40,8 +40,15 @@ const re_id =/^PRODUCTDECLARE\d{22}$/
 
 module.exports = function () {
     var cx_type = $('#plsh input:radio:checked').val()
+
+    var label_info = $('#plsh .tabpanel_item:first .label-info')
     $('#plsh input:radio').change(function () {
         cx_type = $('#plsh input:radio:checked').val()
+        if(cx_type=="BTG"){
+            label_info.text('请在每一行中输入"需要操作的ID 审核不通过的理由" 如：PRODUCTDECLARE0000000000000000000001 属新增')
+        }else{
+            label_info.text('请在每一行中输入"需要操作的ID 审核不通过的理由" 如：PRODUCTDECLARE0000000000000000000001')
+        }
     })
     $('#plsh .tabpanel_item:first button').click(function () {
 
