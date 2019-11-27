@@ -199,7 +199,8 @@ module.exports = function (){
             rows: 20,
             page: 1,
             sidx:"",
-           sord: "asc"
+           sord: "asc",
+           checkStatus:0
         }
         const url ="/hctrade/productDeclarationYB/getproductDeclareListYB"
         const data = {}
@@ -212,7 +213,7 @@ module.exports = function (){
                 cache: false,
                 data: post_data,
                 dataType:"json"
-            }).done(function (data1) {
+            }).then(function (data1) {
                 loadingtools.show("已获取分页信息...")
                 try {
                     if (data1["total"]){
@@ -232,7 +233,7 @@ module.exports = function (){
                 data['errorMsg'] = "获取分页信息出错3"
                 reject(data)
             })
-        }).done(function(data) {
+        }).then(function(data) {
             async.mapLimit(data["pages"], 10, function (n, callback) {
                 let post_data = {
                     _columns: ["id", "操作", "hospNameTb", "productId", "productName", "submitStatus", "checkStatus", "productSpec", "productModel", "productPackUnit", "productPackMaterial", "compNameTb", "compNameSc", "regCode", "regName", "purchasePrice", "purchaseCount", "purchaseDttmStart", "declareType", "chargeType", "chargeLevel", "submitTime", "submitStatus", "ccheckStatus", "fcheckTime", "fcheckNoReson", "tcheckTime", "tcheckNoReson", "lcheckTime", "lcheckNoReson"].join(","),
@@ -243,7 +244,8 @@ module.exports = function (){
                     rows: 20,
                     page: n,
                     sidx: "",
-                    sord: "asc"
+                    sord: "asc",
+                     checkStatus:0
                 }
                 $.ajax({
                     type: 'POST',
@@ -252,7 +254,7 @@ module.exports = function (){
                     cache: false,
                     data: post_data,
                     dataType: "json"
-                }).done(function (data1) {
+                }).then(function (data1) {
                     progress++
                     loadingtools.show('正在处理中(' + progress + '/' + data["total"] + '),请稍候...')
                     try {

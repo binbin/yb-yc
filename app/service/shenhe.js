@@ -16,7 +16,7 @@ const chushentongguo=(data)=>{
             cache: false,
             data: post_data,
             dataType: "json"
-        }).done(function (data1) {
+        }).then(function (data1) {
             if (data1["msg"] && data1["msg"] == "操作成功") {
                 resolve(data)
             } else {
@@ -43,7 +43,7 @@ const chushenbutongguo = (data) => {
             cache: false,
             data: post_data,
             dataType: "json"
-        }).done(function (data1) {
+        }).then(function (data1) {
             if (data1["msg"] && data1["msg"] =="操作成功"){
                 resolve(data)
             }else{

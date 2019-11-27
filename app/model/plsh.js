@@ -1,5 +1,4 @@
 
-var Promise = require("bluebird");
 
 
 var $ = require('jquery');
@@ -101,7 +100,7 @@ module.exports = function () {
                         return shenhe.chushentongguo(data)
                     }
                 })
-                .done(function (data) {
+                .then(function (data) {
                     progress++
                     loadingtools.show('正在处理中(' + progress + '/' + ids.length + '),请稍候...')
                     callback(null, data)
