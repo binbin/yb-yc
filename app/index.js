@@ -65,6 +65,7 @@ $(function () {
     require('../app/model/exports_all')()
     require('../app/model/plsh')()
 
+    require('../app/model/ydlbb_exports_all')()
 
     
 })
