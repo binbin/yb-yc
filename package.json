@@ -46,7 +46,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.6.4",
     "babel-generator": "^6.26.1",
     "babel-helper-define-map": "^6.26.0",
     "babel-helper-regex": "^6.26.0",
